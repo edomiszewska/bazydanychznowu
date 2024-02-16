@@ -1,0 +1,6 @@
+create table `ubrania`(
+`ubranie_id` int AUTO_INCREMENT PRIMARY KEY,
+`typ ubrania` varchar(50) not null,
+`nazwa` varchar(50) not null,
+`płeć` ENUM (`kobieta`, `mezczyzna`) not null
+)engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
