@@ -1,3 +1,4 @@
+========6 TABELI========
 create table `ubrania`(
 `ubranie_id` int AUTO_INCREMENT PRIMARY KEY,
 `typ ubrania` varchar(50) not null,
