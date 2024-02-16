@@ -2,7 +2,7 @@ create table `ubrania`(
 `ubranie_id` int AUTO_INCREMENT PRIMARY KEY,
 `typ ubrania` varchar(50) not null,
 `nazwa` varchar(50) not null,
-`płeć` ENUM (`kobieta`, `mezczyzna`) 
+`płeć` ENUM ('kobieta', 'mezczyzna') 
 )engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
 
 create table `klienci`(
@@ -10,4 +10,37 @@ create table `klienci`(
 `imie` varchar(50) not null,
 `nazwisko` varchar(100) not null,
 `miasto` varchar(100) not null)engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+
+create table `placówki`(
+`placowki_id` int AUTO_INCREMENT PRIMARY KEY,
+`miasto` varchar(50) not null,
+`wojewodztwo` varchar(50) not null
+)engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+
+create table `personel`(
+`personel_id` int AUTO_INCREMENT PRIMARY KEY,
+`imie` varchar(50) not null,
+`nazwisko` varchar(100) not null,
+`pozycja` ENUM ('menadzer', 'sprzedawca', 'kasjer', 'magazynier')
+)engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+
+
+create table `kurierzy`(
+`kurier_id` int AUTO_INCREMENT PRIMARY KEY,
+`firma_kurierska` enum ('DHL', 'INPOST', 'ORLEN'),
+`data` date,
+`klienci_id` int, 
+    FOREIGN KEY(klienci_id) REFERENCES klienci(klienci_id) 
+)engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+
+
+create table `zamowienia`(
+`zamowienie_id` int AUTO_INCREMENT PRIMARY KEY,
+`data` date,
+`klienci_id` int, 
+    FOREIGN KEY(klienci_id) REFERENCES klienci(klienci_id) ,
+`kurier_id` int not null,
+    FOREIGN KEY(kurier_id) REFERENCES kurierzy(kurier_id)
+)engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+
 
