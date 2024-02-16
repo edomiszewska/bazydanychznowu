@@ -2,5 +2,12 @@ create table `ubrania`(
 `ubranie_id` int AUTO_INCREMENT PRIMARY KEY,
 `typ ubrania` varchar(50) not null,
 `nazwa` varchar(50) not null,
-`płeć` ENUM (`kobieta`, `mezczyzna`) not null
+`płeć` ENUM (`kobieta`, `mezczyzna`) 
 )engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+
+create table `klienci`(
+`klienci_id` int AUTO_INCREMENT PRIMARY KEY,
+`imie` varchar(50) not null,
+`nazwisko` varchar(100) not null,
+`miasto` varchar(100) not null)engine=INNODB DEFAULT charset=utf8 COLLATE=utf8_polish_ci;
+
