@@ -93,3 +93,16 @@ INSERT INTO zamowienia (`data`, `klienci_id`, `kurier_id`) VALUES
 ('2024-02-12', 3, 3),
 ('2024-02-13', 4, 4),
 ('2024-02-14', 5, 5);
+
+
+
+=====================================================
+select imie, case imie when 'Ola' then 'to jest Ola' END, case imie when 'Iza' then 'to jest Iza' END from kursantki;
+
+
+==========================
+sakila zadanko 
+SELECT case release_year when 2006 then release_year END, title from `film`
+
+
+
